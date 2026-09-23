@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Based Cat ($BCAT) — Solana</title>
+    <meta
+      name="description"
+      content="Based Cat brings fearless cat energy, bold memes, and unstoppable Solana vibes straight to the moon."
+    />
+    <link rel="icon" href="logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Syne:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              night: "#090909",
+              mint: "#03DFA0",
+              paper: "#F7F7F7",
+            },
+            fontFamily: {
+              display: ["Syne", "sans-serif"],
+              sans: ["Outfit", "sans-serif"],
+            },
+            boxShadow: {
+              mint: "0 0 48px rgba(3, 223, 160, 0.35)",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      :root {
+        color-scheme: dark;
+      }
+      ::selection {
+        background: #03dfa0;
+        color: #090909;
+      }
+      :focus-visible {
+        outline: 2px solid #03dfa0;
+        outline-offset: 3px;
+      }
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-14px);
+        }
+      }
+      @keyframes orbit {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes marquee {
+        from {
+          transform: translateX(0);
+        }
+        to {
+          transform: translateX(-50%);
+        }
+      }
+      @keyframes twinkle {
+        0%,
+        100% {
+          opacity: 0.2;
+          transform: scale(0.8);
+        }
+        50% {
+          opacity: 1;
+          transform: scale(1.4);
+        }
+      }
+      .float {
+        animation: float 6s ease-in-out infinite;
+      }
+      .orbit {
+        animation: orbit 16s linear infinite;
+      }
+      .marquee-track {
+        animation: marquee 36s linear infinite;
+      }
+      .star {
+        position: absolute;
+        width: 3px;
+        height: 3px;
+        border-radius: 999px;
+        background: #fff;
+        box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+        animation: twinkle 3.2s ease-in-out infinite;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+        .float,
+        .orbit,
+        .marquee-track,
+        .star {
+          animation: none;
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-night font-sans text-paper antialiased" data-ca="TBA">
+    <div class="pointer-events-none fixed inset-0 -z-20" aria-hidden="true">
+      <img src="night.svg" alt="" class="h-full w-full object-cover" />
+    </div>
+    <div
+      class="pointer-events-none fixed inset-0 -z-10 bg-gradient-to-b from-night/25 via-transparent to-night/80"
+      aria-hidden="true"
+    ></div>
+    <div class="pointer-events-none fixed inset-0 -z-10 overflow-hidden" aria-hidden="true">
+      <span class="star left-[8%] top-[14%]" style="animation-delay: 0.2s"></span>
+      <span class="star left-[93%] top-[22%]" style="animation-delay: 1.1s"></span>
+      <span class="star left-[70%] top-[12%]" style="animation-delay: 0.6s"></span>
+      <span class="star left-[84%] top-[40%]" style="animation-delay: 1.8s"></span>
+      <span class="star left-[48%] top-[72%]" style="animation-delay: 0.4s"></span>
+      <span class="star left-[14%] top-[78%]" style="animation-delay: 1.4s"></span>
+      <span class="star left-[90%] top-[68%] h-1.5 w-1.5 bg-mint" style="animation-delay: 0.9s"></span>
+    </div>
+
+    <header class="fixed inset-x-0 top-0 z-40 border-b border-white/10 bg-night/75 backdrop-blur-xl">
+      <div class="mx-auto flex h-[4.25rem] max-w-6xl items-center justify-between gap-4 px-5">
+        <a href="#top" class="flex items-center gap-3">
+          <img src="logo.png" alt="" class="h-10 w-10 rounded-full object-cover" />
+          <span class="font-display text-lg font-extrabold tracking-tight">Based Cat</span>
+          <span class="hidden rounded-full bg-mint/15 px-2 py-0.5 text-[11px] font-bold tracking-wide text-mint sm:inline">$BCAT</span>
+        </a>
+
+        <nav class="hidden items-center gap-8 text-sm font-medium text-white/75 md:flex" aria-label="Primary">
+          <a class="transition hover:text-mint" href="#about">About</a>
+          <a class="transition hover:text-mint" href="#how-to-buy">How to Buy</a>
+          <a class="transition hover:text-mint" href="#chart">Chart</a>
+        </nav>
+
+        <div class="flex items-center gap-2 sm:gap-3">
+          <a
+            href="https://t.me/BasedCatSol"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Based Cat on Telegram"
+            class="hidden transition hover:scale-105 sm:inline-flex"
+          >
+            <img src="tg.png" alt="" class="h-9 w-9 rounded-full" />
+          </a>
+          <a
+            href="https://x.com/BasedCatSol"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Based Cat on X"
+            class="hidden transition hover:scale-105 sm:inline-flex"
+          >
+            <img src="x.png" alt="" class="h-9 w-9 rounded-full" />
+          </a>
+          <a
+            href="https://swap.pump.fun/?input=So11111111111111111111111111111111111111112&output=TBA"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center rounded-full bg-mint px-4 py-2 font-display text-xs font-extrabold uppercase tracking-[0.16em] text-night shadow-mint transition hover:brightness-110 sm:px-5 sm:text-sm"
+          >
+            Buy Now
+          </a>
+          <button
+            id="menu-btn"
+            type="button"
+            class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/15 md:hidden"
+            aria-expanded="false"
+            aria-controls="mobile-nav"
+            aria-label="Open menu"
+          >
+            <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+              <path id="menu-icon" stroke-linecap="round" d="M5 7h14M5 12h14M5 17h14" />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div id="mobile-nav" class="hidden border-t border-white/10 bg-night/95 md:hidden">
+        <nav class="mx-auto flex max-w-6xl flex-col gap-1 px-5 py-4 text-base font-medium" aria-label="Mobile">
+          <a class="rounded-xl px-3 py-3 hover:bg-white/5" href="#about">About</a>
+          <a class="rounded-xl px-3 py-3 hover:bg-white/5" href="#how-to-buy">How to Buy</a>
+          <a class="rounded-xl px-3 py-3 hover:bg-white/5" href="#chart">Chart</a>
+          <div class="mt-2 flex items-center gap-3 px-3 py-2">
+            <a href="https://t.me/BasedCatSol" target="_blank" rel="noopener noreferrer" aria-label="Based Cat on Telegram">
+              <img src="tg.png" alt="" class="h-10 w-10 rounded-full" />
+            </a>
+            <a href="https://x.com/BasedCatSol" target="_blank" rel="noopener noreferrer" aria-label="Based Cat on X">
+              <img src="x.png" alt="" class="h-10 w-10 rounded-full" />
+            </a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="relative mx-auto grid max-w-6xl items-center gap-12 px-5 pb-8 pt-28 lg:grid-cols-[1.15fr_0.85fr] lg:pt-36">
+        <p
+          class="pointer-events-none absolute -left-6 top-28 hidden select-none font-display text-[9rem] font-extrabold leading-none tracking-tighter text-white/[0.035] lg:block"
+          aria-hidden="true"
+        >
+          $BCAT
+        </p>
+
+        <div class="relative">
+          <p class="inline-flex items-center gap-2 rounded-full border border-mint/30 bg-mint/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.22em] text-mint">
+            <span class="h-1.5 w-1.5 rounded-full bg-mint"></span>
+            Solana · $BCAT
+          </p>
+          <h1 class="mt-5 font-display text-6xl font-extrabold leading-[0.88] tracking-tight sm:text-7xl lg:text-8xl">
+            Based
+            <span class="block text-mint">Cat</span>
+          </h1>
+          <p class="mt-6 max-w-xl text-lg leading-relaxed text-white/75 sm:text-xl">
+            Based Cat brings fearless cat energy, bold memes, and unstoppable Solana vibes straight to the moon.
+          </p>
+
+          <div class="mt-8 flex flex-wrap items-center gap-3">
+            <a
+              href="https://swap.pump.fun/?input=So11111111111111111111111111111111111111112&output=TBA"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 rounded-full bg-mint px-6 py-3.5 font-display text-sm font-extrabold uppercase tracking-[0.16em] text-night shadow-mint transition hover:brightness-110"
+            >
+              Buy Now
+              <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6" />
+              </svg>
+            </a>
+            <a
+              href="https://dexscreener.com/solana/TBA"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3.5 font-display text-sm font-extrabold uppercase tracking-[0.16em] text-white transition hover:border-mint hover:text-mint"
+            >
+              Chart
+              <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 19V5M4 19h16" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8 15l3.5-4 3 2.5L20 7" />
+              </svg>
+            </a>
+          </div>
+
+          <div class="mt-8 flex flex-col gap-3 rounded-[1.4rem] border border-mint/25 bg-black/55 p-4 backdrop-blur-md sm:flex-row sm:items-center sm:justify-between">
+            <div class="min-w-0">
+              <p class="text-[11px] font-semibold uppercase tracking-[0.22em] text-mint">Contract Address</p>
+              <p class="mt-1 truncate font-mono text-lg tracking-wide text-white sm:text-xl" data-ca-text>TBA</p>
+            </div>
+            <button
+              type="button"
+              class="copy-ca inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-paper px-5 py-2.5 font-display text-xs font-extrabold uppercase tracking-[0.16em] text-night transition hover:bg-mint"
+            >
+              <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <rect x="9" y="9" width="11" height="11" rx="2" />
+                <path d="M5 15V5a2 2 0 0 1 2-2h10" />
+              </svg>
+              <span data-copy-label>Copy CA</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="relative mx-auto w-full max-w-[440px]">
+          <div class="absolute inset-8 -z-10 rounded-full bg-mint/25 blur-3xl" aria-hidden="true"></div>
+          <div class="pointer-events-none absolute -inset-3 rounded-full border border-dashed border-mint/35" aria-hidden="true"></div>
+          <div class="orbit pointer-events-none absolute -inset-3" aria-hidden="true">
+            <span class="absolute left-1/2 top-0 h-4 w-4 -translate-x-1/2 -translate-y-1/2 rounded-full bg-mint shadow-mint"></span>
+          </div>
+          <img src="logo.png" alt="Based Cat logo, a white cat with a mint yarn ball" class="float relative w-full rounded-[2rem]" />
+        </div>
+      </section>
+
+      <section class="mx-auto max-w-6xl px-5 py-6" aria-label="Banner">
+        <figure class="overflow-hidden rounded-[1.8rem] border border-white/10 shadow-[0_30px_80px_rgba(0,0,0,0.45)]">
+          <img src="banner.jpg" alt="Based Cat sitting under a crescent moon" class="h-auto w-full" />
+        </figure>
+      </section>
+
+      <div class="mt-8 overflow-hidden border-y border-white/10 bg-black/40 py-4" aria-hidden="true">
+        <div class="marquee-track flex w-max gap-10 whitespace-nowrap font-display text-sm font-bold uppercase tracking-[0.28em] text-white/80">
+          <span>Based Cat</span><span class="text-mint">$BCAT</span><span>Fearless cat energy</span><span class="text-mint">●</span>
+          <span>Bold memes</span><span class="text-mint">$BCAT</span><span>Unstoppable Solana vibes</span><span class="text-mint">●</span>
+          <span>Straight to the moon</span><span class="text-mint">$BCAT</span>
+          <span>Based Cat</span><span class="text-mint">$BCAT</span><span>Fearless cat energy</span><span class="text-mint">●</span>
+          <span>Bold memes</span><span class="text-mint">$BCAT</span><span>Unstoppable Solana vibes</span><span class="text-mint">●</span>
+          <span>Straight to the moon</span><span class="text-mint">$BCAT</span>
+        </div>
+      </div>
+
+      <section id="about" class="scroll-mt-24 mx-auto max-w-6xl px-5 py-20 md:py-28">
+        <div class="max-w-2xl">
+          <p class="text-[11px] font-semibold uppercase tracking-[0.24em] text-mint">The cat</p>
+          <h2 class="mt-3 font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Night mode. Moon bound.</h2>
+          <p class="mt-5 text-lg leading-relaxed text-white/70">
+            One white cat. One mint yarn ball. A black sky full of moons. That is the whole religion — fearless, loud, and already looking past the clouds.
+          </p>
+        </div>
+        <div class="mt-12 grid gap-4 md:grid-cols-3">
+          <article class="rounded-[1.6rem] border border-white/10 bg-white/[0.04] p-6 backdrop-blur-md transition hover:border-mint/40">
+            <p class="font-display text-3xl font-extrabold text-mint">01</p>
+            <h3 class="mt-4 font-display text-2xl font-bold">Fearless cat energy</h3>
+            <p class="mt-3 leading-relaxed text-white/70">
+              Still face, sharp whiskers, zero flinch. Based Cat holds the chart the way a cat holds a sunbeam — like it was always there.
+            </p>
+          </article>
+          <article class="rounded-[1.6rem] border border-white/10 bg-white/[0.04] p-6 backdrop-blur-md transition hover:border-mint/40">
+            <p class="font-display text-3xl font-extrabold text-mint">02</p>
+            <h3 class="mt-4 font-display text-2xl font-bold">Bold memes</h3>
+            <p class="mt-3 leading-relaxed text-white/70">
+              The yarn is mint, the timeline is not subtle, and the joke lands before the candle does. Based Cat memes in high contrast only.
+            </p>
+          </article>
+          <article class="rounded-[1.6rem] border border-white/10 bg-white/[0.04] p-6 backdrop-blur-md transition hover:border-mint/40">
+            <p class="font-display text-3xl font-extrabold text-mint">03</p>
+            <h3 class="mt-4 font-display text-2xl font-bold">Solana vibes</h3>
+            <p class="mt-3 leading-relaxed text-white/70">
+              Fast chain, louder holders, one direction. Unstoppable Solana vibes, aimed straight to the moon.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="how-to-buy" class="scroll-mt-24 border-y border-white/10 bg-black/35 py-20 md:py-28">
+        <div class="mx-auto max-w-6xl px-5">
+          <div class="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+            <div class="max-w-xl">
+              <p class="text-[11px] font-semibold uppercase tracking-[0.24em] text-mint">Solana</p>
+              <h2 class="mt-3 font-display text-4xl font-extrabold tracking-tight sm:text-5xl">How to Buy</h2>
+              <p class="mt-4 text-lg leading-relaxed text-white/70">
+                Pick up $BCAT with SOL in four moves. Wallet, funds, the contract, then the swap.
+              </p>
+            </div>
+            <a
+              href="https://swap.pump.fun/?input=So11111111111111111111111111111111111111112&output=TBA"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex w-fit items-center rounded-full bg-mint px-6 py-3 font-display text-sm font-extrabold uppercase tracking-[0.16em] text-night shadow-mint transition hover:brightness-110"
+            >
+              Buy Now
+            </a>
+          </div>
+
+          <ol class="relative mt-14 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+            <li class="rounded-[1.6rem] border border-white/10 bg-night/80 p-6">
+              <div class="flex h-12 w-12 items-center justify-center rounded-full bg-mint font-display text-lg font-extrabold text-night">1</div>
+              <h3 class="mt-5 font-display text-xl font-bold">Create a Solana wallet</h3>
+              <p class="mt-3 text-sm leading-relaxed text-white/70">
+                Install Phantom or Solflare and create a wallet. Write the recovery phrase somewhere only you can open. That wallet is how you hold $BCAT.
+              </p>
+            </li>
+            <li class="rounded-[1.6rem] border border-white/10 bg-night/80 p-6">
+              <div class="flex h-12 w-12 items-center justify-center rounded-full bg-mint font-display text-lg font-extrabold text-night">2</div>
+              <h3 class="mt-5 font-display text-xl font-bold">Fund it with SOL</h3>
+              <p class="mt-3 text-sm leading-relaxed text-white/70">
+                Buy SOL on an exchange and send it to your wallet address. Keep a little SOL spare so the network fee can clear when you swap.
+              </p>
+            </li>
+            <li class="rounded-[1.6rem] border border-white/10 bg-night/80 p-6">
+              <div class="flex h-12 w-12 items-center justify-center rounded-full bg-mint font-display text-lg font-extrabold text-night">3</div>
+              <h3 class="mt-5 font-display text-xl font-bold">Match the contract</h3>
+              <p class="mt-3 text-sm leading-relaxed text-white/70">
+                Copy the CA on this page. Hit Buy Now — the swap opens with SOL in and $BCAT out. Confirm the output address matches before you continue.
+              </p>
+            </li>
+            <li class="rounded-[1.6rem] border border-white/10 bg-night/80 p-6">
+              <div class="flex h-12 w-12 items-center justify-center rounded-full bg-mint font-display text-lg font-extrabold text-night">4</div>
+              <h3 class="mt-5 font-display text-xl font-bold">Swap and moon</h3>
+              <p class="mt-3 text-sm leading-relaxed text-white/70">
+                Enter the SOL amount, approve the transaction in your wallet, and $BCAT lands in your balance. Open the chart. The yarn is already rolling.
+              </p>
+            </li>
+          </ol>
+
+          <div class="mt-8 flex flex-col gap-4 rounded-[1.4rem] border border-white/10 bg-white/[0.04] p-4 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <p class="text-[11px] font-semibold uppercase tracking-[0.22em] text-mint">Copy the CA before you swap</p>
+              <p class="mt-1 font-mono text-lg text-white" data-ca-text>TBA</p>
+            </div>
+            <button
+              type="button"
+              class="copy-ca inline-flex items-center justify-center gap-2 rounded-full border border-mint/40 px-5 py-2.5 font-display text-xs font-extrabold uppercase tracking-[0.16em] text-mint transition hover:bg-mint hover:text-night"
+            >
+              Copy CA
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section id="chart" class="scroll-mt-24 mx-auto max-w-6xl px-5 py-20 md:py-28">
+        <div class="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
+          <div>
+            <p class="text-[11px] font-semibold uppercase tracking-[0.24em] text-mint">Dexscreener</p>
+            <h2 class="mt-3 font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Live chart</h2>
+            <p class="mt-4 max-w-xl text-lg text-white/70">Watch $BCAT move. The pair is embedded straight from Dexscreener.</p>
+          </div>
+          <a
+            href="https://dexscreener.com/solana/TBA"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex w-fit items-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3 font-display text-sm font-extrabold uppercase tracking-[0.16em] text-white transition hover:border-mint hover:text-mint"
+          >
+            Chart
+          </a>
+        </div>
+        <div class="mt-8 overflow-hidden rounded-[1.8rem] border border-mint/20 bg-black shadow-[0_0_60px_rgba(3,223,160,0.08)]">
+          <iframe
+            title="Based Cat Dexscreener chart"
+            src="https://dexscreener.com/solana/TBA?embed=1&loadChartSettings=0&trades=0&tabs=0&info=0&chartLeftToolbar=0&chartTheme=dark&theme=dark&chartStyle=1&chartType=usd&interval=15"
+            class="h-[70vh] min-h-[440px] w-full border-0"
+            loading="lazy"
+          ></iframe>
+        </div>
+      </section>
+
+      <section class="mx-auto max-w-6xl px-5 pb-24">
+        <div class="relative overflow-hidden rounded-[2rem] border border-mint/30 bg-black/60 px-6 py-12 text-center sm:px-12">
+          <div class="pointer-events-none absolute -right-10 -top-16 h-48 w-48 rounded-full bg-mint/20 blur-3xl" aria-hidden="true"></div>
+          <p class="font-display text-sm font-bold uppercase tracking-[0.28em] text-mint">$BCAT</p>
+          <h2 class="mx-auto mt-4 max-w-3xl font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Straight to the moon.</h2>
+          <p class="mx-auto mt-4 max-w-2xl text-lg text-white/70">
+            Based Cat brings fearless cat energy, bold memes, and unstoppable Solana vibes straight to the moon.
+          </p>
+          <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
+            <a
+              href="https://swap.pump.fun/?input=So11111111111111111111111111111111111111112&output=TBA"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center rounded-full bg-mint px-6 py-3.5 font-display text-sm font-extrabold uppercase tracking-[0.16em] text-night shadow-mint transition hover:brightness-110"
+            >
+              Buy Now
+            </a>
+            <a
+              href="https://dexscreener.com/solana/TBA"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center rounded-full border border-white/20 px-6 py-3.5 font-display text-sm font-extrabold uppercase tracking-[0.16em] text-white transition hover:border-mint hover:text-mint"
+            >
+              Chart
+            </a>
+            <button
+              type="button"
+              class="copy-ca inline-flex items-center rounded-full bg-paper px-6 py-3.5 font-display text-sm font-extrabold uppercase tracking-[0.16em] text-night transition hover:bg-mint"
+            >
+              Copy CA
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="border-t border-white/10 bg-black/50">
+      <div class="mx-auto flex max-w-6xl flex-col gap-8 px-5 py-10 sm:flex-row sm:items-center sm:justify-between">
+        <div class="flex items-center gap-3">
+          <img src="logo.png" alt="" class="h-11 w-11 rounded-full object-cover" />
+          <div>
+            <p class="font-display text-lg font-extrabold">Based Cat</p>
+            <p class="text-sm text-white/55">$BCAT on Solana</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-3">
+          <a href="https://t.me/BasedCatSol" target="_blank" rel="noopener noreferrer" aria-label="Based Cat on Telegram" class="transition hover:scale-105">
+            <img src="tg.png" alt="" class="h-10 w-10 rounded-full" />
+          </a>
+          <a href="https://x.com/BasedCatSol" target="_blank" rel="noopener noreferrer" aria-label="Based Cat on X" class="transition hover:scale-105">
+            <img src="x.png" alt="" class="h-10 w-10 rounded-full" />
+          </a>
+        </div>
+      </div>
+      <p class="mx-auto max-w-6xl px-5 pb-8 text-xs leading-relaxed text-white/40">
+        $BCAT is a meme coin. Nothing on this page is financial advice. Always confirm the contract address before you swap.
+      </p>
+    </footer>
+
+    <div
+      id="toast"
+      role="status"
+      aria-live="polite"
+      class="pointer-events-none fixed bottom-6 left-1/2 z-50 -translate-x-1/2 translate-y-3 rounded-full bg-mint px-4 py-2 font-display text-sm font-extrabold uppercase tracking-[0.14em] text-night opacity-0 transition duration-300"
+    ></div>
+
+    <script>
+      const ca = document.body.dataset.ca || "TBA";
+      const toast = document.getElementById("toast");
+      let toastTimer;
+
+      async function copyCa(button) {
+        try {
+          await navigator.clipboard.writeText(ca);
+        } catch (err) {
+          const field = document.createElement("textarea");
+          field.value = ca;
+          field.setAttribute("readonly", "");
+          field.style.position = "fixed";
+          field.style.left = "-9999px";
+          document.body.appendChild(field);
+          field.select();
+          document.execCommand("copy");
+          field.remove();
+        }
+        const label = button.querySelector("[data-copy-label]") || button;
+        const original = label.dataset.label || label.textContent;
+        label.dataset.label = original;
+        label.textContent = "Copied";
+        toast.textContent = "CA copied";
+        toast.classList.remove("opacity-0", "translate-y-3");
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => {
+          label.textContent = original.trim();
+          toast.classList.add("opacity-0", "translate-y-3");
+        }, 1600);
+      }
+
+      document.querySelectorAll(".copy-ca").forEach((button) => {
+        button.addEventListener("click", () => copyCa(button));
+      });
+
+      const menuBtn = document.getElementById("menu-btn");
+      const mobileNav = document.getElementById("mobile-nav");
+      const menuIcon = document.getElementById("menu-icon");
+
+      function setMenu(open) {
+        mobileNav.classList.toggle("hidden", !open);
+        menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
+        menuBtn.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+        menuIcon.setAttribute("d", open ? "M6 6l12 12M18 6L6 18" : "M5 7h14M5 12h14M5 17h14");
+      }
+
+      menuBtn.addEventListener("click", () => {
+        setMenu(menuBtn.getAttribute("aria-expanded") !== "true");
+      });
+
+      mobileNav.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => setMenu(false));
+      });
+    </script>
+  </body>
+</html>
