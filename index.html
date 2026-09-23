@@ -132,9 +132,9 @@
 
     <header class="fixed inset-x-0 top-0 z-40 border-b border-white/10 bg-night/75 backdrop-blur-xl">
       <div class="mx-auto flex h-[4.25rem] max-w-6xl items-center justify-between gap-4 px-5">
-        <a href="#top" class="flex items-center gap-3">
-          <img src="logo.png" alt="" class="h-10 w-10 rounded-full object-cover" />
-          <span class="font-display text-lg font-extrabold tracking-tight">Based Cat</span>
+        <a href="#top" class="flex min-w-0 items-center gap-2.5" aria-label="Based Cat home">
+          <img src="logo.png" alt="" class="h-10 w-10 shrink-0 rounded-full object-cover" />
+          <span class="hidden whitespace-nowrap font-display text-base font-extrabold tracking-tight min-[380px]:inline sm:text-lg">Based Cat</span>
           <span class="hidden rounded-full bg-mint/15 px-2 py-0.5 text-[11px] font-bold tracking-wide text-mint sm:inline">$BCAT</span>
         </a>
 
@@ -167,14 +167,14 @@
             href="https://swap.pump.fun/?input=So11111111111111111111111111111111111111112&output=TBA"
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex items-center rounded-full bg-mint px-4 py-2 font-display text-xs font-extrabold uppercase tracking-[0.16em] text-night shadow-mint transition hover:brightness-110 sm:px-5 sm:text-sm"
+            class="inline-flex shrink-0 items-center whitespace-nowrap rounded-full bg-mint px-3.5 py-2 font-display text-[11px] font-extrabold uppercase tracking-[0.14em] text-night shadow-mint transition hover:brightness-110 sm:px-5 sm:text-sm sm:tracking-[0.16em]"
           >
             Buy Now
           </a>
           <button
             id="menu-btn"
             type="button"
-            class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/15 md:hidden"
+            class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/15 md:hidden"
             aria-expanded="false"
             aria-controls="mobile-nav"
             aria-label="Open menu"
